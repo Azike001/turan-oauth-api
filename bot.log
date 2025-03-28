@@ -1,0 +1,51 @@
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/telegram/ext/_application.py", line 921, in __run
+    raise exc
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/telegram/ext/_application.py", line 910, in __run
+    loop.run_until_complete(self.initialize())
+  File "/data/data/com.termux/files/usr/lib/python3.12/asyncio/base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "/data/data/com.termux/files/usr/lib/python3.12/asyncio/base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/telegram/ext/_application.py", line 932, in __run
+    loop.run_until_complete(self.shutdown())
+  File "/data/data/com.termux/files/usr/lib/python3.12/asyncio/base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "/data/data/com.termux/files/usr/lib/python3.12/asyncio/base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/bot.py", line 139, in <module>
+    asyncio.run(main())
+  File "/data/data/com.termux/files/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/bot.py", line 135, in main
+    await app.run_polling()
+          ^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/telegram/ext/_application.py", line 727, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.12/site-packages/telegram/ext/_application.py", line 937, in __run
+    loop.close()
+  File "/data/data/com.termux/files/usr/lib/python3.12/asyncio/unix_events.py", line 68, in close
+    super().close()
+  File "/data/data/com.termux/files/usr/lib/python3.12/asyncio/selector_events.py", line 101, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
+sys:1: RuntimeWarning: coroutine 'Application.shutdown' was never awaited
+sys:1: RuntimeWarning: coroutine 'Application.initialize' was never awaited

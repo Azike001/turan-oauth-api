@@ -1,0 +1,25 @@
+from telegram.ext import Updater, CommandHandler
+
+TOKEN = "8080091792:AAED9X1dxlMDy3Xca5qwjGlzRIS31VGAkdA"
+CHANNEL = "@turanmarket001"
+
+def start(update, context):
+    update.message.reply_text("Turan Market Bot активен! 🚀")
+
+def post(update, context):
+    text = " ".join(context.args)
+    if text:
+        context.bot.send_message(chat_id=CHANNEL, text=f"🛍️ Новый товар: {text}")
+        update.message.reply_text("✅ Отправлено в канал!")
+    else:
+        update.message.reply_text("❗ Напиши текст товара после команды /post")
+
+updater = Updater(TOKEN, use_context=True)
+dp = updater.dispatcher
+
+dp.add_handler(CommandHandler("start", start))
+dp.add_handler(CommandHandler("post", post))
+
+updater.start_polling()
+updater.idle()
+
